@@ -746,3 +746,60 @@ img {
 }
 #orderForm button { padding:10px 20px; background:#F6762C; color:#fff; border:none; border-radius:5px; cursor:pointer; }
 #orderForm button:hover { opacity:.8; }
+/* --- Модалка заказа --- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal {
+  background: #1C1C1C;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  color: #fff;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+.modal-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  background: #312F30;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #F6762C;
+}
