@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Landing</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <img src="./images/icons/logo.png" alt="Логотип" class="header__logo">
+
+      <nav class="header__nav">
+        <ul class="header__list">
+          <li><a class="active" href="#home">Главная</a></li>
+          <li><a href="#pages">Страницы</a></li>
+          <li><a href="#offer">Наши предложения</a></li>
+          <li><a href="#pricing">Цены</a></li>
+          <li><a href="#shop">Магазин</a></li>
+        </ul>
+      </nav>
+
+      <a href="#order" class="btn">Заказать</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Home -->
+    <section id="home" class="welcome">
+      <div class="container">
+        <div class="welcome__text">
+          <h4 class="welcome__subtitle">ФАСТФУД БУРГЕРЫ</h4>
+          <h1 class="welcome__title">Быстрый бургер — когда хочется прямо сейчас.</h1>
+          <p class="welcome__desc">Некоторые блюда выглядят ужасно, но один укус — и ты не остановишься.</p>
+          <a href="#order" class="btn">Заказать</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Меню еды -->
+    <section id="menu" class="food-list">
+      <div class="container">
+        <!-- твои карточки еды -->
+        <div class="food-list__card">
+          <img src="./images/food-list-1.jpg" alt="Chicken Paella" class="food-list__img">
+          <div class="food-list__text-wrapper">
+            <h4 class="food-list__title">Куриная паэлья</h4>
+            <p class="food-list__desc">Мы не просто готовим еду — мы создаём эмоции.</p>
+          </div>
+        </div>
+        <div class="food-list__card">
+          <img src="./images/food-list-2.jpg" alt="Taco Del Mar" class="food-list__img">
+          <div class="food-list__text-wrapper">
+            <h4 class="food-list__title">Taco Del Mar</h4>
+            <p class="food-list__desc">Лучшее из мексиканской кухни.</p>
+          </div>
+        </div>
+        <div class="food-list__card">
+          <img src="./images/food-list-3.jpg" alt="Bon Au Pain" class="food-list__img">
+          <div class="food-list__text-wrapper">
+            <h4 class="food-list__title">Bon Au Pain</h4>
+            <p class="food-list__desc">Легенда здорового фастфуда.</p>
+          </div>
+        </div>
+        <div class="food-list__card">
+          <img src="./images/food-list-4.jpg" alt="Pizza Hut" class="food-list__img">
+          <div class="food-list__text-wrapper">
+            <h4 class="food-list__title">Pizza Hut</h4>
+            <p class="food-list__desc">Пицца, которую любят во всём мире.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="order">
+      <div class="container">
+        <img src="./images/burger.png" alt="Burger" class="order__img">
+        <div class="order__text">
+          <h3 class="order__title">Burger King</h3>
+          <p class="order__desc">Burger King — с McDonald’s наравне по символике бургеров в США.</p>
+          <span class="order__price">$6</span>
+          <span class="order__price order__price--old">$8</span>
+          <a href="#!" class="btn">Заказать</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Cards -->
+    <section id="products" class="product">
+      <div class="container">
+        <div class="product__card card-queen">
+          <h4 class="product__title">Dairy Queen</h4>
+          <p class="product__desc">Один из крупнейших фастфудов.</p>
+          <span class="product__price">$4</span>
+          <span class="product__price product__price--old">$6</span>
+          <a href="#!" class="btn btn--small">Заказать</a>
+        </div>
+        <div class="product__card card-hut">
+          <h4 class="product__title">Pizza Hut</h4>
+          <p class="product__desc">Пицца без компромиссов.</p>
+          <span class="product__price">$3</span>
+          <span class="product__price product__price--old">$7</span>
+          <a href="#!" class="btn btn--small">Заказать</a>
+        </div>
+        <div class="product__card card-king">
+          <h4 class="product__title">Burger King</h4>
+          <p class="product__desc">Классические бургеры.</p>
+          <span class="product__price">$4</span>
+          <span class="product__price product__price--old">$6</span>
+          <a href="#!" class="btn btn--small">Заказать</a>
+        </div>
+        <div class="product__card card-papa">
+          <h4 class="product__title">Papa John’s</h4>
+          <p class="product__desc">Популярная пицца в мире.</p>
+          <span class="product__price">$4</span>
+          <span class="product__price product__price--old">$6</span>
+          <a href="#!" class="btn btn--small">Заказать</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback -->
+    <div id="feedback" class="feedback">
+      <div class="container">
+        <img src="./images/feedback.png" alt="Feedback" class="feedback__img">
+        <blockquote class="feedback__text">
+          <p class="feedback__desc">Спасибо за мгновенный сервис! Вкус божественный.</p>
+          <cite class="feedback__author">Adele A. McNeill</cite>
+          <span class="feedback__subauthor">США</span>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- Download -->
+    <div id="download" class="download">
+      <div class="container">
+        <p class="download__title">Скачать меню</p>
+        <a href="./images/burger.png" class="btn" download>Скачать</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer__contacts">
+        <img src="./images/icons/logo.png" alt="Логотип" class="footer__logo">
+        <a class="footer__link footer__link-mail" href="mailto:fastfood_usa@gmail.com">fastfood_usa@gmail.com</a>
+        <a href="#!" class="footer__link footer__link-web">www.fastfood_usa.com</a>
+      </div>
+      <nav class="footer__nav">
+        <ul class="footer__list">
+          <li class="footer__list-title footer__menu">
+            <a class="footer__title" href="#menu">Меню</a>
+            <ul class="footer__inner-list">
+              <li class="footer__list-item"><a href="#home">Главная</a></li>
+              <li class="footer__list-item"><a href="#order">Заказать</a></li>
+              <li class="footer__list-item"><a href="#contact">Контакты</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="footer__socials">
+        <p class="footer__title">Соцсети</p>
+        <div class="footer__socials-icons">
+          <a class="footer__socials-link" href="#"><img src="./images/icons/socials/facebook.png" alt=""></a>
+          <a class="footer__socials-link" href="#"><img src="./images/icons/socials/twitter.png" alt=""></a>
+          <a class="footer__socials-link" href="#"><img src="./images/icons/socials/instagram.png" alt=""></a>
+          <a class="footer__socials-link" href="#"><img src="./images/icons/socials/linkedin.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно заказа -->
+  <div id="modal-overlay" style="display:none;"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
