@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Плавный скролл
+  // ========== Smooth scroll ==========
   document.querySelectorAll('.header__nav a').forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Кнопка "наверх"
+  // ========== Back to top & header bg ==========
   const btnUp = document.createElement('button');
   btnUp.textContent = '↑';
   Object.assign(btnUp.style, {
@@ -26,31 +26,58 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.header').style.background = window.scrollY > 50 ? '#111' : 'transparent';
   });
 
-  // Обработка кнопок "Заказать"
+  // ========== Модалка ==========
+  const modalOverlay = document.getElementById('orderModal');
+  const modalClose   = document.getElementById('modalClose');
+  const orderForm    = document.getElementById('orderForm');
+  const orderDishInp = document.getElementById('orderDish');
+
+  function openModal(dishId) {
+    orderDishInp.value = dishId;
+    modalOverlay.style.display = 'flex';
+  }
+  function closeModal() {
+    modalOverlay.style.display = 'none';
+    orderForm.reset();
+  }
+  modalClose.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', e => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  // ========== Кнопки "Заказать" ==========
   document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      if (btn.textContent.toLowerCase().includes('заказать')) {
-        e.preventDefault();
+    btn.addEventListener('click', e => {
+      const txt = btn.textContent.toLowerCase();
+      if (!txt.includes('заказать')) return;
 
-        const parent = btn.closest('.food-list__card, .product__card, .order__text');
-        let itemId = "classic_burger";
-
-        if (parent) {
-          const title = parent.querySelector('h4, h3')?.textContent?.toLowerCase() || "";
-          if (title.includes("паэлья"))        itemId = "chicken_paella";
-          else if (title.includes("taco"))     itemId = "taco_del_mar";
-          else if (title.includes("bon"))      itemId = "bon_au_pain";
-          else if (title.includes("pizza"))    itemId = "pizza_hut";
-          else if (title.includes("чиз"))      itemId = "cheeseburger";
-          else if (title.includes("бургер"))   itemId = "classic_burger";
-        }
-
-        if (window.Telegram && window.Telegram.WebApp) {
-          Telegram.WebApp.sendData(itemId); // для Telegram
-        } else {
-          alert("Вы выбрали: " + itemId + "\\n(Платёж доступен только в Telegram)");
-        }
+      e.preventDefault();
+      // Определяем ID блюда
+      const parent = btn.closest('.food-list__card, .product__card, .order__text');
+      let dish = 'classic_burger';
+      if (parent) {
+        const title = (parent.querySelector('h4, h3')?.textContent || '').toLowerCase();
+        if (title.includes('паэлья'))   dish = 'chicken_paella';
+        else if (title.includes('taco')) dish = 'taco_del_mar';
+        else if (title.includes('bon'))  dish = 'bon_au_pain';
+        else if (title.includes('pizza'))dish = 'pizza_hut';
+        else if (title.includes('чиз'))  dish = 'cheeseburger';
       }
+      openModal(dish);
     });
+  });
+
+  // ========== Сабмит формы ==========
+  orderForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(orderForm).entries());
+    // Отправляем JSON
+    const payload = JSON.stringify(data);
+    if (window.Telegram && Telegram.WebApp) {
+      Telegram.WebApp.sendData(payload);
+    } else {
+      alert('Данные заказа:\n' + payload);
+    }
+    closeModal();
   });
 });
