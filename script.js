@@ -10,27 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Активный хотбар (navigation highlight)
-const navLinks = document.querySelectorAll('.header__nav a');
-const sections = document.querySelectorAll('main > section');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const top = section.offsetTop - 100;
-    if (window.scrollY >= top) {
-      current = section.classList[0];
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-});
-
   // ========== Back to top & header bg ==========
   const btnUp = document.createElement('button');
   btnUp.textContent = '↑';
@@ -46,10 +25,6 @@ window.addEventListener('scroll', () => {
     btnUp.style.display = window.scrollY > 300 ? 'block' : 'none';
     document.querySelector('.header').style.background = window.scrollY > 50 ? '#111' : 'transparent';
   });
-  
-scrollBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
 
   // ========== Модалка ==========
   const modalOverlay = document.getElementById('orderModal');
@@ -105,36 +80,4 @@ scrollBtn.addEventListener("click", () => {
     }
     closeModal();
   });
-});
-document.querySelectorAll(".btn").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    if (btn.textContent.toLowerCase().includes("order")) {
-      e.preventDefault();
-      modal.style.display = "block";
-    }
-  });
-});
-modal.querySelector("#closeModal").addEventListener("click", () => modal.style.display = "none");
-modal.querySelector("#sendOrder").addEventListener("click", () => {
-  alert("Thank you! Your order has been sent.");
-  modal.style.display = "none";
-});
-
-// Анимация появления при скролле
-const animatedElems = document.querySelectorAll('.food-list__card, .product__card, .order, .feedback, .download');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate-visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.2
-});
-
-animatedElems.forEach(elem => {
-  elem.classList.add('animate-hidden');
-  observer.observe(elem);
 });
