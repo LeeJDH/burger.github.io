@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Кнопка вверх
+  // Кнопка "наверх"
   const btnUp = document.createElement('button');
   btnUp.textContent = '↑';
   Object.assign(btnUp.style, {
@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (btn.textContent.toLowerCase().includes('заказать')) {
         e.preventDefault();
 
-        // Определяем ID товара по заголовку блока
         const parent = btn.closest('.food-list__card, .product__card, .order__text');
         let itemId = "classic_burger";
 
@@ -47,9 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (window.Telegram && window.Telegram.WebApp) {
-          Telegram.WebApp.sendData(itemId);
+          Telegram.WebApp.sendData(itemId); // для Telegram
         } else {
-          alert("Платёж доступен только в Telegram приложении.");
+          alert("Вы выбрали: " + itemId + "\\n(Платёж доступен только в Telegram)");
         }
       }
     });
