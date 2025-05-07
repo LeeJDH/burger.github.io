@@ -81,3 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModal();
   });
 });
+
+// ===== Scroll Reveal Animation =====
+const animatedItems = document.querySelectorAll('.animate-hidden');
+const revealOnScroll = () => {
+  animatedItems.forEach(item => {
+    const rect = item.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      item.classList.add('animate-visible');
+    }
+  });
+};
+revealOnScroll(); // запустить при загрузке
+window.addEventListener('scroll', revealOnScroll);
