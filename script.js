@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (title.includes('bon'))  dish = 'bon_au_pain';
         else if (title.includes('pizza'))dish = 'pizza_hut';
         else if (title.includes('чиз'))  dish = 'cheeseburger';
-
+        else if (title.includes('dairy') || title.includes('queen')) dish = 'dairy_queen';
         // Берём цену как есть (вместе с символом валюты)
         const priceElem = parent.querySelector('.order__price, .product__price');
         selectedPrice = priceElem ? priceElem.textContent.trim() : '';
