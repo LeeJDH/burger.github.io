@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openModal(dishId) {
     orderDishInp.value = dishId;
+    orderPriceInp.value = price;
     modalOverlay.style.display = 'flex';
   }
   function closeModal() {
