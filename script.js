@@ -74,21 +74,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+      const dishNames = {
+      classic_burger: "Classic Burger",
+      chicken_paella: "Куриная паэлья",
+      taco_del_mar: "Taco Del Mar",
+      bon_au_pain: "Bon Au Pain",
+      pizza_hut: "Pizza Hut",
+      cheeseburger: "Чизбургер",
+      dairy_queen: "Dairy Queen",
+      };
+  
+
   // ========== Сабмит формы ==========
   orderForm.addEventListener('submit', e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(orderForm).entries());
-    data.price = selectedPrice; // Добавляем цену с валютой в данные заказа
-
+    data.price = selectedPrice; // цена с валютой
+  
+    // Заменяем айди блюда на нормальное название
+    data.dish = dishNames[data.dish] || data.dish;
+  
     const payload = JSON.stringify(data);
+  
     if (window.Telegram && Telegram.WebApp) {
       Telegram.WebApp.sendData(payload);
     } else {
       alert('Данные заказа:\n' + payload);
     }
     closeModal();
-  });
-});
+  });  
 
 // ===== Scroll Reveal Animation =====
 const animatedItems = document.querySelectorAll('.animate-hidden');
@@ -100,5 +114,7 @@ const revealOnScroll = () => {
     }
   });
 };
+
 revealOnScroll(); // запустить при загрузке
 window.addEventListener('scroll', revealOnScroll);
+});
