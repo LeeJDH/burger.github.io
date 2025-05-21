@@ -31,19 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalClose   = document.getElementById('modalClose');
   const orderForm    = document.getElementById('orderForm');
   const orderDishInp = document.getElementById('orderDish');
-  const orderPriceInp = document.getElementById('orderPrice');
+  // У тебя в HTML нет orderPriceInp, убираем этот код
 
-  function openModal(dishId, price) {
-  orderDishInp.value = dishId;
-  orderPriceInp.value = price;
-  modalOverlay.style.display = 'flex';
+  function openModal(dishId) {
+    orderDishInp.value = dishId;
+    modalOverlay.style.display = 'flex';
   }
 
-  }
   function closeModal() {
     modalOverlay.style.display = 'none';
     orderForm.reset();
   }
+
   modalClose.addEventListener('click', closeModal);
   modalOverlay.addEventListener('click', e => {
     if (e.target === modalOverlay) closeModal();
@@ -67,9 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (title.includes('pizza'))dish = 'pizza_hut';
         else if (title.includes('чиз'))  dish = 'cheeseburger';
       }
-      let priceText = parent?.querySelector('.order__price, .product__price')?.textContent || '';
-      let price = priceText.replace(/[^0-9.]/g, '').trim(); // убираем $ и пробелы
-      openModal(dish, price);
+      openModal(dish);
     });
   });
 
@@ -77,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
   orderForm.addEventListener('submit', e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(orderForm).entries());
-    // Отправляем JSON
     const payload = JSON.stringify(data);
     if (window.Telegram && Telegram.WebApp) {
       Telegram.WebApp.sendData(payload);
