@@ -13,7 +13,6 @@
   <header class="header">
     <div class="container">
       <img src="./images/icons/logo.png" alt="Логотип" class="header__logo">
-
       <nav class="header__nav">
         <ul class="header__list">
           <li><a class="active" href="#home">Главная</a></li>
@@ -23,7 +22,6 @@
           <li><a href="#download">Скачать Меню</a></li>
         </ul>
       </nav>
-
       <a href="#order" class="btn">Заказать</a>
     </div>
   </header>
@@ -42,52 +40,45 @@
     </section>
 
     <!-- Меню еды -->
-   <section id="menu" class="food-list">
-  <div class="container">
-    <!-- Карточка 1 -->
-    <div class="food-list__card">
-      <img src="./images/food-list-1.jpg" alt="Chicken Paella" class="food-list__img">
-      <div class="food-list__text-wrapper">
-        <h4 class="food-list__title">Куриная паэлья</h4>
-        <p class="food-list__desc">Мы не просто готовим еду — мы создаём эмоции.</p>
-        <a href="#!" class="btn">Заказать</a>
+    <section id="menu" class="food-list">
+      <div class="container">
+        <div class="food-list__card">
+          <img src="./images/food-list-1.jpg" alt="Chicken Paella" class="food-list__img">
+          <div class="food-list__text-wrapper">
+            <h4 class="food-list__title">Куриная паэлья</h4>
+            <p class="food-list__desc">Мы не просто готовим еду — мы создаём эмоции.</p>
+            <a href="#!" class="btn">Заказать</a>
+          </div>
+        </div>
+        <div class="food-list__card">
+          <img src="./images/food-list-2.jpg" alt="Taco Del Mar" class="food-list__img">
+          <div class="food-list__text-wrapper">
+            <h4 class="food-list__title">Taco Del Mar</h4>
+            <p class="food-list__desc">Лучшее из мексиканской кухни.</p>
+            <a href="#!" class="btn">Заказать</a>
+          </div>
+        </div>
+        <div class="food-list__card">
+          <img src="./images/food-list-3.jpg" alt="Bon Au Pain" class="food-list__img">
+          <div class="food-list__text-wrapper">
+            <h4 class="food-list__title">Bon Au Pain</h4>
+            <p class="food-list__desc">Легенда здорового фастфуда.</p>
+            <a href="#!" class="btn">Заказать</a>
+          </div>
+        </div>
+        <div class="food-list__card">
+          <img src="./images/food-list-4.jpg" alt="Pizza Hut" class="food-list__img">
+          <div class="food-list__text-wrapper">
+            <h4 class="food-list__title">Pizza Hut</h4>
+            <p class="food-list__desc">Пицца, которую любят во всём мире.</p>
+            <a href="#!" class="btn">Заказать</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Карточка 2 -->
-    <div class="food-list__card">
-      <img src="./images/food-list-2.jpg" alt="Taco Del Mar" class="food-list__img">
-      <div class="food-list__text-wrapper">
-        <h4 class="food-list__title">Taco Del Mar</h4>
-        <p class="food-list__desc">Лучшее из мексиканской кухни.</p>
-        <a href="#!" class="btn">Заказать</a>
-      </div>
-    </div>
-
-    <!-- Карточка 3 -->
-    <div class="food-list__card">
-      <img src="./images/food-list-3.jpg" alt="Bon Au Pain" class="food-list__img">
-      <div class="food-list__text-wrapper">
-        <h4 class="food-list__title">Bon Au Pain</h4>
-        <p class="food-list__desc">Легенда здорового фастфуда.</p>
-        <a href="#!" class="btn">Заказать</a>
-      </div>
-    </div>
-
-    <!-- Карточка 4 -->
-    <div class="food-list__card">
-      <img src="./images/food-list-4.jpg" alt="Pizza Hut" class="food-list__img">
-      <div class="food-list__text-wrapper">
-        <h4 class="food-list__title">Pizza Hut</h4>
-        <p class="food-list__desc">Пицца, которую любят во всём мире.</p>
-        <a href="#!" class="btn">Заказать</a>
-      </div>
-    </div>
-  </div>
-</section>
-    
     <!-- Order Section -->
-    <section id="order" class="order animate-hidden" class="order">
+    <section id="order" class="order animate-hidden">
       <div class="container">
         <img src="./images/burger.png" alt="Burger" class="order__img">
         <div class="order__text">
@@ -101,7 +92,7 @@
     </section>
 
     <!-- Product Cards -->
-    <section id="products" class="product animate-hidden" class="product">
+    <section id="products" class="product animate-hidden">
       <div class="container">
         <div class="product__card card-queen">
           <h4 class="product__title">Dairy Queen</h4>
@@ -135,7 +126,7 @@
     </section>
 
     <!-- Feedback -->
-    <div id="feedback" class="feedback animate-hidden" class="feedback">
+    <div id="feedback" class="feedback animate-hidden">
       <div class="container">
         <img src="./images/feedback.png" alt="Feedback" class="feedback__img">
         <blockquote class="feedback__text">
@@ -147,7 +138,7 @@
     </div>
 
     <!-- Download -->
-    <div id="download" class="download animate-hidden" class="download">
+    <div id="download" class="download animate-hidden">
       <div class="container">
         <p class="download__title">Скачать меню</p>
         <a href="./images/burger.png" class="btn" download>Скачать</a>
@@ -156,33 +147,33 @@
   </main>
 
   <!-- Модалка формы заказа -->
-<div class="modal-overlay" id="orderModal">
-  <div class="modal">
-    <button class="modal-close" id="modalClose">×</button>
-    <h2 class="modal-title">Ваш заказ</h2>
-    <form id="orderForm">
-      <input type="hidden" name="dish" id="orderDish" value="">
-      <input type="hidden" name="price" id="orderPrice" value="">
-      <div class="form-group">
-        <label>Имя</label>
-        <input type="text" name="name" required />
-      </div>
-      <div class="form-group">
-        <label>Телефон</label>
-        <input type="tel" name="phone" required />
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" required />
-      </div>
-      <div class="form-group">
-        <label>Комментарий</label>
-        <textarea name="comment" rows="3"></textarea>
-      </div>
-      <button type="submit" class="btn">Отправить заказ</button>
-    </form>
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">×</button>
+      <h2 class="modal-title">Ваш заказ</h2>
+      <form id="orderForm">
+        <input type="hidden" name="dish" id="orderDish" value="">
+        <input type="hidden" name="price" id="orderPrice" value="">
+        <div class="form-group">
+          <label>Имя</label>
+          <input type="text" name="name" required />
+        </div>
+        <div class="form-group">
+          <label>Телефон</label>
+          <input type="tel" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label>Комментарий</label>
+          <textarea name="comment" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn">Отправить заказ</button>
+      </form>
+    </div>
   </div>
-</div>
 
   <!-- Footer -->
   <footer id="contact" class="footer">
