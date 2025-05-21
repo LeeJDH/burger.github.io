@@ -31,10 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalClose   = document.getElementById('modalClose');
   const orderForm    = document.getElementById('orderForm');
   const orderDishInp = document.getElementById('orderDish');
-  // У тебя в HTML нет orderPriceInp, убираем этот код
+  let selectedPrice = '';
 
-  function openModal(dishId) {
+  function openModal(dishId, price) {
     orderDishInp.value = dishId;
+    selectedPrice = price || '';
     modalOverlay.style.display = 'flex';
   }
 
@@ -55,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!txt.includes('заказать')) return;
 
       e.preventDefault();
-      // Определяем ID блюда
       const parent = btn.closest('.food-list__card, .product__card, .order__text');
       let dish = 'classic_burger';
       if (parent) {
@@ -65,8 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (title.includes('bon'))  dish = 'bon_au_pain';
         else if (title.includes('pizza'))dish = 'pizza_hut';
         else if (title.includes('чиз'))  dish = 'cheeseburger';
+
+        // Берём цену как есть (вместе с символом валюты)
+        const priceElem = parent.querySelector('.order__price, .product__price');
+        selectedPrice = priceElem ? priceElem.textContent.trim() : '';
       }
-      openModal(dish);
+      openModal(dish, selectedPrice);
     });
   });
 
@@ -74,6 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
   orderForm.addEventListener('submit', e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(orderForm).entries());
+    data.price = selectedPrice; // Добавляем цену с валютой в данные заказа
+
     const payload = JSON.stringify(data);
     if (window.Telegram && Telegram.WebApp) {
       Telegram.WebApp.sendData(payload);
