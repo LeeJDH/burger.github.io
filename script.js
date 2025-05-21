@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalClose   = document.getElementById('modalClose');
   const orderForm    = document.getElementById('orderForm');
   const orderDishInp = document.getElementById('orderDish');
+  const orderPriceInp = document.getElementById('orderPrice');
 
   function openModal(dishId) {
     orderDishInp.value = dishId;
@@ -64,7 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (title.includes('pizza'))dish = 'pizza_hut';
         else if (title.includes('чиз'))  dish = 'cheeseburger';
       }
-      openModal(dish);
+      let priceText = parent?.querySelector('.order__price, .product__price')?.textContent || '';
+      let price = priceText.replace(/[^0-9.]/g, '').trim(); // убираем $ и пробелы
+      openModal(dish, price);
     });
   });
 
