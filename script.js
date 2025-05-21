@@ -33,10 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const orderDishInp = document.getElementById('orderDish');
   const orderPriceInp = document.getElementById('orderPrice');
 
-  function openModal(dishId) {
-    orderDishInp.value = dishId;
-    orderPriceInp.value = price;
-    modalOverlay.style.display = 'flex';
+  function openModal(dishId, price) {
+  orderDishInp.value = dishId;
+  orderPriceInp.value = price;
+  modalOverlay.style.display = 'flex';
+  }
+
   }
   function closeModal() {
     modalOverlay.style.display = 'none';
